@@ -4,6 +4,177 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Contact Us – NextGen Academy</title>
 <link rel="stylesheet" href="nga.css">
+<style>
+/* ── MISSING BASE CLASSES ── */
+.container { max-width: 1180px; margin: 0 auto; width: 100%; }
+.page-hero { position: relative; padding: 140px 28px 80px; overflow: hidden; }
+.page-hero-inner { max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; }
+.page-hero-inner h1 { font-family: var(--fh); font-size: clamp(2.2rem,5vw,3.8rem); font-weight: 800; margin-bottom: 16px; }
+.page-hero-inner p { color: var(--gray); font-size: 1rem; max-width: 560px; }
+.breadcrumb { font-size: .8rem; color: var(--gray); margin-bottom: 18px; }
+.breadcrumb a { color: var(--cyan); }
+.c { color: var(--cyan); }
+
+.card-g { background: var(--glass); border: 1px solid var(--line); border-radius: var(--rl); padding: 28px; transition: .3s; }
+.card-g:hover { border-color: rgba(6,182,212,.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.3); }
+.card-g h3 { font-family: var(--fh); font-size: 1.1rem; margin-bottom: 10px; }
+.card-g p { color: var(--gray); font-size: .92rem; }
+.card-icon { font-size: 2rem; margin-bottom: 14px; }
+
+/* ── CONTACT LAYOUT ── */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ── CONTACT ITEMS ── */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 16px 18px;
+}
+.contact-item-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+.contact-item h4 { font-family: var(--fh); font-size: .85rem; font-weight: 700; margin-bottom: 2px; }
+.contact-item p { color: var(--gray); font-size: .88rem; }
+
+/* ── FORM WRAPPER ── */
+.form-wrap {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--rl);
+  padding: 36px;
+}
+
+/* ── FORM ELEMENTS ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+.form-group label {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 7px;
+  letter-spacing: .3px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--white);
+  font-family: var(--fb);
+  font-size: .92rem;
+  padding: 12px 16px;
+  transition: border-color .25s, box-shadow .25s;
+  width: 100%;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238b98b0' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+.form-group select option { background: #1c2333; color: var(--white); }
+.form-group select optgroup { color: var(--cyan); font-weight: 700; }
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+  line-height: 1.6;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--gray2); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: rgba(6,182,212,.5);
+  box-shadow: 0 0 0 3px rgba(6,182,212,.08);
+}
+.form-group input.err,
+.form-group select.err,
+.form-group textarea.err { border-color: #f87171; }
+
+/* Checkbox row */
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.check-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  accent-color: var(--cyan);
+  cursor: pointer;
+}
+.check-row label {
+  font-weight: 400;
+  color: var(--gray);
+  font-size: .84rem;
+  cursor: pointer;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+/* Validation */
+.field-err { color: #f87171; font-size: .78rem; margin-top: 5px; min-height: 16px; }
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+.submit-btn:disabled { opacity: .6; cursor: not-allowed; transform: none !important; }
+
+/* Success message */
+#form-ok {
+  display: none;
+  background: rgba(6,182,212,.1);
+  border: 1px solid rgba(6,182,212,.3);
+  border-radius: 10px;
+  padding: 16px 20px;
+  color: var(--cyan);
+  font-size: .92rem;
+  margin-top: 18px;
+  line-height: 1.6;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+  .page-hero { padding: 120px 28px 60px; }
+}
+@media (max-width: 640px) {
+  .page-hero { padding: 100px 20px 50px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .form-wrap { padding: 24px 20px; }
+}
+</style>
 </head>
 <body>
 
@@ -15,8 +186,6 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="tuitions.html">Tuitions</a></li>
-      <!-- <li><a href="summer.html">Summer Program</a></li> -->
-      <!-- <li><a href="career.html">Career</a></li> -->
       <li><a href="contact.html" class="nav-btn on">Contact</a></li>
     </ul>
   </div>
@@ -33,7 +202,7 @@
 </div>
 
 <section class="sec">
-  <div class="container contact-layout" style="display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:start">
+  <div class="container contact-layout">
 
     <!-- LEFT INFO -->
     <div>
@@ -69,6 +238,7 @@
     <div class="form-wrap reveal reveal-d1">
       <h3 style="font-family:var(--fh);font-size:1.5rem;font-weight:800;margin-bottom:28px">Send Us a Message</h3>
       <form id="cf" novalidate>
+
         <div class="form-row">
           <div class="form-group">
             <label for="fname">First Name *</label>
@@ -84,7 +254,7 @@
 
         <div class="form-group">
           <label for="email">Email Address *</label>
-          <input type="email" id="email" placeholder="Zain@email.com">
+          <input type="email" id="email" placeholder="zain@email.com">
           <span class="field-err" id="e-email"></span>
         </div>
 
@@ -139,13 +309,13 @@
           <span class="field-err" id="e-msg"></span>
         </div>
 
-        <div class="form-group" style="display:flex;align-items:flex-start;gap:10px">
-          <input type="checkbox" id="agree" style="width:auto;margin-top:4px;flex-shrink:0;accent-color:var(--cyan)">
-          <label for="agree" style="font-weight:400;color:var(--gray);font-size:.85rem;cursor:pointer;letter-spacing:0">I agree to be contacted by NextGen Academy regarding my enquiry. My details will not be shared with third parties.</label>
+        <div class="check-row">
+          <input type="checkbox" id="agree">
+          <label for="agree">I agree to be contacted by NextGen Academy regarding my enquiry. My details will not be shared with third parties.</label>
         </div>
-        <span class="field-err" id="e-agree" style="display:block;margin-bottom:12px"></span>
+        <span class="field-err" id="e-agree" style="display:block;margin-bottom:14px"></span>
 
-        <button type="submit" class="btn-p submit-btn" style="width:100%;padding:15px;font-size:1rem;justify-content:center">Send Message ✉️</button>
+        <button type="submit" class="btn-p submit-btn">Send Message ✉️</button>
         <div id="form-ok">✅ Thank you! Your message has been received. We'll be in touch within 24 hours.</div>
       </form>
     </div>
@@ -178,13 +348,73 @@
   </div>
   <div class="footer-bottom"><p>© 2025 NextGen Academy. All rights reserved.</p><p class="made">Carbon Cyan Theme</p></div>
 </footer>
-<!-- WhatsApp Float Button -->
+
 <div class="wa-float">
   <a href="https://wa.me/923212913175" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 </div>
+
 <script src="nga.js"></script>
+<script>
+// Form validation
+document.getElementById('cf').addEventListener('submit', function(e) {
+  e.preventDefault();
+  let ok = true;
+
+  function err(id, field, msg) {
+    document.getElementById(id).textContent = msg;
+    if (field) field.classList.add('err');
+    ok = false;
+  }
+  function clear(id, field) {
+    document.getElementById(id).textContent = '';
+    if (field) field.classList.remove('err');
+  }
+
+  const fname    = document.getElementById('fname');
+  const lname    = document.getElementById('lname');
+  const email    = document.getElementById('email');
+  const interest = document.getElementById('interest');
+  const country  = document.getElementById('country');
+  const msg      = document.getElementById('msg');
+  const agree    = document.getElementById('agree');
+
+  clear('e-fname', fname);    if (!fname.value.trim())    err('e-fname', fname, 'Please enter your first name.');
+  clear('e-lname', lname);    if (!lname.value.trim())    err('e-lname', lname, 'Please enter your last name.');
+  clear('e-email', email);
+  if (!email.value.trim()) {
+    err('e-email', email, 'Please enter your email address.');
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+    err('e-email', email, 'Please enter a valid email address.');
+  }
+  clear('e-interest', interest); if (!interest.value) err('e-interest', interest, 'Please select an option.');
+  clear('e-country', country);   if (!country.value)   err('e-country', country, 'Please select your country.');
+  clear('e-msg', msg);           if (!msg.value.trim()) err('e-msg', msg, 'Please enter a message.');
+  clear('e-agree', null);        if (!agree.checked)    err('e-agree', null, 'Please agree to be contacted.');
+
+  if (ok) {
+    const btn = this.querySelector('.submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    setTimeout(() => {
+      document.getElementById('form-ok').style.display = 'block';
+      this.reset();
+      btn.disabled = false;
+      btn.textContent = 'Send Message ✉️';
+    }, 800);
+  }
+});
+
+// Clear error on input
+['fname','lname','email','interest','country','msg'].forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener('input', () => {
+    document.getElementById('e-' + id).textContent = '';
+    el.classList.remove('err');
+  });
+});
+</script>
 
 </body>
 </html>
