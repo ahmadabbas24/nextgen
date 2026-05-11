@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact Us – NextGen Academy</title>
+<link rel="stylesheet" href="nga.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><div class="logo-box">N</div><span class="logo-name">NextGen<em>Academy</em></span></a>
+    <button class="hbg" id="hbg">☰</button>
+    <ul class="nav-links" id="nl">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="tuitions.html">Tuitions</a></li>
+      <li><a href="summer.html">Summer Program</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="contact.html" class="nav-btn on">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="grid-bg"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> › Contact Us</div>
+    <h1>Get in <span class="c">Touch</span></h1>
+    <p>We'd love to hear from you. Reach out for enrolment, queries or a free counselling session.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="container contact-layout" style="display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:start">
+
+    <!-- LEFT INFO -->
+    <div>
+      <h2 style="font-family:var(--fh);font-size:1.7rem;font-weight:800;margin-bottom:14px" class="reveal">Start Your <span class="c">Learning Journey</span></h2>
+      <p style="color:var(--gray);margin-bottom:32px;font-size:.95rem" class="reveal">Whether you need tuitions, Summer Program enrolment, or career guidance — fill in the form and we'll respond within 24 hours.</p>
+
+      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px">
+        <div class="contact-item reveal reveal-d1">
+          <div class="contact-item-icon">📞</div>
+          <div><h4>Phone / WhatsApp</h4><p>+92 300 0000000</p></div>
+        </div>
+        <div class="contact-item reveal reveal-d2">
+          <div class="contact-item-icon">📧</div>
+          <div><h4>Email Address</h4><p>info@nextgenacademy.com</p></div>
+        </div>
+        <div class="contact-item reveal reveal-d3">
+          <div class="contact-item-icon">📍</div>
+          <div><h4>Location</h4><p>Karachi, Sindh, Pakistan</p></div>
+        </div>
+        <div class="contact-item reveal reveal-d4">
+          <div class="contact-item-icon">🕐</div>
+          <div><h4>Office Hours</h4><p>Mon–Sat: 9:00 AM – 8:00 PM</p></div>
+        </div>
+      </div>
+
+      <div class="info-box reveal" style="padding:24px 28px">
+        <h4 style="font-family:var(--fh);font-size:.8rem;color:var(--cyan);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px">🌐 International Students</h4>
+        <p style="color:var(--gray);font-size:.88rem;line-height:1.7">Based in UK, Canada, Australia or New Zealand? Please mention your country and timezone in the message so we can schedule sessions at a convenient time for you.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="form-wrap reveal reveal-d1">
+      <h3 style="font-family:var(--fh);font-size:1.5rem;font-weight:800;margin-bottom:28px">Send Us a Message</h3>
+      <form id="cf" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name *</label>
+            <input type="text" id="fname" placeholder="Ahmed">
+            <span class="field-err" id="e-fname"></span>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name *</label>
+            <input type="text" id="lname" placeholder="Khan">
+            <span class="field-err" id="e-lname"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="ahmed@email.com">
+          <span class="field-err" id="e-email"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone / WhatsApp</label>
+          <input type="tel" id="phone" placeholder="+92 300 0000000">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="interest">I'm Interested In *</label>
+            <select id="interest">
+              <option value="">— Select —</option>
+              <optgroup label="Tuitions">
+                <option>Tuition – Class 9 / 10</option>
+                <option>Tuition – Class 11 / 12</option>
+                <option>Tuition – 1st Year</option>
+                <option>Tuition – 2nd Year</option>
+                <option>Online Tuition (International)</option>
+              </optgroup>
+              <optgroup label="Summer Program">
+                <option>Maths & Science Crash</option>
+                <option>Commerce & Accounts Summer</option>
+                <option>FSc Board Prep</option>
+                <option>Career Discovery</option>
+              </optgroup>
+              <optgroup label="Other">
+                <option>Career Guidance Session</option>
+                <option>General Enquiry</option>
+              </optgroup>
+            </select>
+            <span class="field-err" id="e-interest"></span>
+          </div>
+          <div class="form-group">
+            <label for="country">Your Country *</label>
+            <select id="country">
+              <option value="">— Select —</option>
+              <option>🇵🇰 Pakistan</option>
+              <option>🇬🇧 United Kingdom</option>
+              <option>🇨🇦 Canada</option>
+              <option>🇦🇺 Australia</option>
+              <option>🇳🇿 New Zealand</option>
+              <option>Other</option>
+            </select>
+            <span class="field-err" id="e-country"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="msg">Your Message *</label>
+          <textarea id="msg" placeholder="Tell us about yourself — which class, subject or programme you're interested in, your availability, and any questions..."></textarea>
+          <span class="field-err" id="e-msg"></span>
+        </div>
+
+        <div class="form-group" style="display:flex;align-items:flex-start;gap:10px">
+          <input type="checkbox" id="agree" style="width:auto;margin-top:4px;flex-shrink:0;accent-color:var(--cyan)">
+          <label for="agree" style="font-weight:400;color:var(--gray);font-size:.85rem;cursor:pointer;letter-spacing:0">I agree to be contacted by NextGen Academy regarding my enquiry. My details will not be shared with third parties.</label>
+        </div>
+        <span class="field-err" id="e-agree" style="display:block;margin-bottom:12px"></span>
+
+        <button type="submit" class="btn-p submit-btn" style="width:100%;padding:15px;font-size:1rem;justify-content:center">Send Message ✉️</button>
+        <div id="form-ok">✅ Thank you! Your message has been received. We'll be in touch within 24 hours.</div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec dark">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-tag">FAQs</div>
+      <h2>Common <span class="c">Questions</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
+      <div class="card-g reveal reveal-d1"><div class="card-icon">💬</div><h3>Is there a free trial?</h3><p>Yes — we offer a complimentary first session so you can experience our teaching style before committing.</p></div>
+      <div class="card-g reveal reveal-d2" style="background:linear-gradient(135deg,rgba(6,182,212,.1),rgba(6,182,212,.04));border-color:rgba(6,182,212,.3)"><div class="card-icon">🌐</div><h3>How do online sessions work?</h3><p>Sessions run on Zoom or Google Meet with screen sharing, a digital whiteboard, and recorded replays available.</p></div>
+      <div class="card-g reveal reveal-d3"><div class="card-icon">💳</div><h3>What are the fees?</h3><p>Fees vary by class and subject. Monthly and per-session packages are available. Contact us for current rates.</p></div>
+      <div class="card-g reveal reveal-d4"><div class="card-icon">📅</div><h3>Can I change timing?</h3><p>Yes — we offer morning and evening slots and can reschedule sessions with 24 hours' notice.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="logo"><div class="logo-box">N</div><span class="logo-name">NextGen<em>Academy</em></span></div><p>Excellence in education — online & offline — for over a decade.</p></div>
+    <div><h4>Pages</h4><div class="footer-col"><a href="index.html">Home</a><a href="about.html">About</a><a href="tuitions.html">Tuitions</a><a href="summer.html">Summer Program</a><a href="career.html">Career</a><a href="contact.html">Contact</a></div></div>
+    <div><h4>Subjects</h4><div class="footer-col"><a href="tuitions.html">Mathematics</a><a href="tuitions.html">Commerce</a><a href="tuitions.html">Accounts</a><a href="tuitions.html">Physics & Chemistry</a><a href="tuitions.html">Biology</a></div></div>
+    <div><h4>Contact</h4><div class="footer-col"><p>📧 info@nextgenacademy.com</p><p>📞 +92 300 0000000</p><p>💬 WhatsApp Available</p><p>📍 Karachi, Pakistan</p></div></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 NextGen Academy. All rights reserved.</p><p class="made">Carbon Cyan Theme</p></div>
+</footer>
+<!-- WhatsApp Float Button -->
+<div class="wa-float">
+  <a href="https://wa.me/923212913175" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+<script src="nga.js"></script>
+
+</body>
+</html>
