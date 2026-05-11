@@ -4,6 +4,40 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Tuitions – NextGen Academy</title>
 <link rel="stylesheet" href="nga.css">
+<style>
+/* ── MISSING CLASSES NOT IN nga.css ── */
+.container { max-width: 1180px; margin: 0 auto; width: 100%; }
+
+.page-hero { position: relative; padding: 140px 28px 80px; overflow: hidden; }
+.page-hero-inner { max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; }
+.page-hero-inner h1 { font-family: var(--fh); font-size: clamp(2.2rem,5vw,3.8rem); font-weight: 800; margin-bottom: 16px; }
+.page-hero-inner p { color: var(--gray); font-size: 1rem; max-width: 560px; }
+.breadcrumb { font-size: .8rem; color: var(--gray); margin-bottom: 18px; }
+.breadcrumb a { color: var(--cyan); }
+.c { color: var(--cyan); }
+
+.tab-wrap { width: 100%; }
+.tab-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+
+.step-card {
+  background: var(--glass); border: 1px solid var(--line);
+  border-radius: var(--rl); padding: 32px 26px; transition: .3s;
+}
+.step-card:hover { border-color: rgba(6,182,212,.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.3); }
+.step-num { font-family: var(--fh); font-size: 2.4rem; font-weight: 800; color: var(--cyan); opacity: .3; line-height: 1; margin-bottom: 14px; }
+.step-card h3 { font-family: var(--fh); font-size: 1.1rem; margin-bottom: 10px; }
+.step-card p { color: var(--gray); font-size: .92rem; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .page-hero { padding: 120px 28px 60px; }
+}
+@media (max-width: 640px) {
+  .page-hero { padding: 100px 20px 50px; }
+  .tab-row { gap: 6px; }
+  .tab-btn { padding: 8px 14px !important; font-size: .8rem !important; }
+}
+</style>
 </head>
 <body>
 
@@ -14,9 +48,8 @@
     <ul class="nav-links" id="nl">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <!-- <li><a href="tuitions.html" class="on">Tuitions</a></li> -->
+      <li><a href="tuitions.html" class="on">Tuitions</a></li>
       <li><a href="summer.html">Summer Program</a></li>
-      <!-- <li><a href="career.html">Career</a></li> -->
       <li><a href="contact.html" class="nav-btn">Contact</a></li>
     </ul>
   </div>
@@ -46,8 +79,8 @@
         <button class="tab-btn" onclick="showTab('c10',this)">Class 10</button>
         <button class="tab-btn" onclick="showTab('c11',this)">Class 11</button>
         <button class="tab-btn" onclick="showTab('c12',this)">Class 12</button>
-        <button class="tab-btn" onclick="showTab('yr1',this)">1st Year (Inter)</button>
-        <button class="tab-btn" onclick="showTab('yr2',this)">2nd Year (Inter)</button>
+        <button class="tab-btn" onclick="showTab('yr1',this)">1st Year</button>
+        <button class="tab-btn" onclick="showTab('yr2',this)">2nd Year</button>
       </div>
 
       <div class="tab-panel on" id="c9">
@@ -102,10 +135,10 @@
       <p>Online Maths & subjects for students in the UK, Canada, Australia and New Zealand.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
-      <div style="background:var(--glass);border:1px solid var(--line);border-radius:var(--rl);padding:30px 22px;text-align:center;transition:.35s" class="reveal reveal-d1 country-c"><div style="font-size:2.8rem;margin-bottom:12px">🇬🇧</div><h3 style="font-family:var(--fh);font-size:1.05rem;margin-bottom:6px">United Kingdom</h3><p style="color:var(--gray);font-size:.82rem">GCSE & A Level Maths and Computer Science online</p></div>
-      <div style="background:var(--glass);border:1px solid var(--line);border-radius:var(--rl);padding:30px 22px;text-align:center;transition:.35s" class="reveal reveal-d2 country-c"><div style="font-size:2.8rem;margin-bottom:12px">🇨🇦</div><h3 style="font-family:var(--fh);font-size:1.05rem;margin-bottom:6px">Canada</h3><p style="color:var(--gray);font-size:.82rem">Curriculum-aligned online Maths tuition</p></div>
-      <div style="background:var(--glass);border:1px solid var(--line);border-radius:var(--rl);padding:30px 22px;text-align:center;transition:.35s" class="reveal reveal-d3 country-c"><div style="font-size:2.8rem;margin-bottom:12px">🇦🇺</div><h3 style="font-family:var(--fh);font-size:1.05rem;margin-bottom:6px">Australia</h3><p style="color:var(--gray);font-size:.82rem">Flexible timezone sessions for AU students</p></div>
-      <div style="background:var(--glass);border:1px solid var(--line);border-radius:var(--rl);padding:30px 22px;text-align:center;transition:.35s" class="reveal reveal-d4 country-c"><div style="font-size:2.8rem;margin-bottom:12px">🇳🇿</div><h3 style="font-family:var(--fh);font-size:1.05rem;margin-bottom:6px">New Zealand</h3><p style="color:var(--gray);font-size:.82rem">Personalised sessions for NZ curriculum</p></div>
+      <div class="country-c reveal reveal-d1" style="background:var(--glass);border:1px solid var(--line);border-radius:var(--rl);padding:30px 22px;text-align:center;transition:.35s"><div style="font-size:2.8rem;margin-bottom:12px">🇬🇧</div><h3 style="font-family:var(--fh);font-size:1.05rem;margin-bottom:6px">United Kingdom</h3><p style="color:var(--gray);font-size:.82rem">GCSE & A Level Maths and Computer Science online</p></div>
+      <div class="country-c reveal reveal-d2" style="background:var(--glass);border:1px solid var(--line);border-radius:var(--rl);padding:30px 22px;text-align:center;transition:.35s"><div style="font-size:2.8rem;margin-bottom:12px">🇨🇦</div><h3 style="font-family:var(--fh);font-size:1.05rem;margin-bottom:6px">Canada</h3><p style="color:var(--gray);font-size:.82rem">Curriculum-aligned online Maths tuition</p></div>
+      <div class="country-c reveal reveal-d3" style="background:var(--glass);border:1px solid var(--line);border-radius:var(--rl);padding:30px 22px;text-align:center;transition:.35s"><div style="font-size:2.8rem;margin-bottom:12px">🇦🇺</div><h3 style="font-family:var(--fh);font-size:1.05rem;margin-bottom:6px">Australia</h3><p style="color:var(--gray);font-size:.82rem">Flexible timezone sessions for AU students</p></div>
+      <div class="country-c reveal reveal-d4" style="background:var(--glass);border:1px solid var(--line);border-radius:var(--rl);padding:30px 22px;text-align:center;transition:.35s"><div style="font-size:2.8rem;margin-bottom:12px">🇳🇿</div><h3 style="font-family:var(--fh);font-size:1.05rem;margin-bottom:6px">New Zealand</h3><p style="color:var(--gray);font-size:.82rem">Personalised sessions for NZ curriculum</p></div>
     </div>
   </div>
 </section>
@@ -137,13 +170,17 @@
   </div>
   <div class="footer-bottom"><p>© 2025 NextGen Academy. All rights reserved.</p><p class="made">Carbon Cyan Theme</p></div>
 </footer>
-<!-- WhatsApp Float Button -->
+
 <div class="wa-float">
   <a href="https://wa.me/923212913175" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 </div>
+
+<style>
+.country-c:hover { border-color: rgba(6,182,212,.35) !important; background: var(--cdim) !important; transform: translateY(-6px); box-shadow: 0 0 40px rgba(6,182,212,.08); }
+</style>
+
 <script src="nga.js"></script>
-<style>.country-c:hover{border-color:rgba(6,182,212,.35)!important;background:var(--cdim)!important;transform:translateY(-6px);box-shadow:0 0 40px rgba(6,182,212,.08)}</style>
 </body>
 </html>
