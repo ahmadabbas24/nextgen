@@ -48,6 +48,7 @@ a { text-decoration: none; color: inherit; }
   display: flex; align-items: center; justify-content: center;
   font-family: var(--fh); font-weight: 800; font-size: 1rem; color: #0d1117;
   box-shadow: 0 0 20px var(--cglow);
+  flex-shrink: 0;
 }
 .logo-name { font-family: var(--fh); font-size: 1.15rem; font-weight: 700; }
 .logo-name em { color: var(--cyan); font-style: normal; }
@@ -57,7 +58,7 @@ a { text-decoration: none; color: inherit; }
 .nav-links a.on { color: var(--cyan); }
 .nav-btn { background: var(--cyan) !important; color: #0d1117 !important; font-weight: 600 !important; border-radius: 9px !important; padding: 8px 20px !important; }
 .nav-btn:hover { background: var(--cyan2) !important; box-shadow: 0 0 24px var(--cglow) !important; }
-.hbg { display: none; background: none; border: 1px solid var(--line); border-radius: 8px; color: var(--white); font-size: 1.3rem; padding: 5px 9px; cursor: pointer; }
+.hbg { display: none; background: none; border: 1px solid var(--line); border-radius: 8px; color: var(--white); font-size: 1.3rem; padding: 5px 9px; cursor: pointer; flex-shrink: 0; }
 
 /* ── HERO ── */
 .hero {
@@ -85,7 +86,7 @@ a { text-decoration: none; color: inherit; }
   padding: 7px 16px; border-radius: 40px; margin-bottom: 26px;
   animation: fadeUp .8s ease both;
 }
-.live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: blink 2s ease-in-out infinite; }
+.live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: blink 2s ease-in-out infinite; flex-shrink: 0; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.15} }
 
 .hero h1 {
@@ -99,12 +100,12 @@ a { text-decoration: none; color: inherit; }
 .hero-sub { color: var(--gray); font-size: 1.02rem; max-width: 480px; margin-bottom: 38px; animation: fadeUp 1s .3s ease both; }
 
 .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; animation: fadeUp 1s .45s ease both; }
-.btn-p { display: inline-block; background: var(--cyan); color: #0d1117; font-weight: 600; font-size: .95rem; padding: 14px 32px; border-radius: 11px; transition: .3s; border: none; cursor: pointer; font-family: var(--fb); }
+.btn-p { display: inline-block; background: var(--cyan); color: #0d1117; font-weight: 600; font-size: .95rem; padding: 14px 32px; border-radius: 11px; transition: .3s; border: none; cursor: pointer; font-family: var(--fb); white-space: nowrap; }
 .btn-p:hover { background: var(--cyan2); box-shadow: 0 0 36px var(--cglow); transform: translateY(-2px); }
-.btn-o { display: inline-block; background: transparent; color: var(--white); font-weight: 500; font-size: .95rem; padding: 14px 32px; border-radius: 11px; border: 1px solid rgba(255,255,255,.18); transition: .3s; }
+.btn-o { display: inline-block; background: transparent; color: var(--white); font-weight: 500; font-size: .95rem; padding: 14px 32px; border-radius: 11px; border: 1px solid rgba(255,255,255,.18); transition: .3s; white-space: nowrap; }
 .btn-o:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
 
-.stats { display: flex; gap: 0; animation: fadeUp 1s .6s ease both; }
+.stats { display: flex; gap: 0; animation: fadeUp 1s .6s ease both; flex-wrap: wrap; }
 .st { padding: 0 30px; border-right: 1px solid var(--line); }
 .st:first-child { padding-left: 0; }
 .st:last-child { border-right: none; }
@@ -190,8 +191,8 @@ a { text-decoration: none; color: inherit; }
   transition: .3s;
 }
 .subj-card:hover { border-color: rgba(6,182,212,.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.3); }
-.subj-card h3 { font-family: var(--fh); font-size: 1.1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-.subj-badge { background: var(--cdim); color: var(--cyan); font-size: .68rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(6,182,212,.3); }
+.subj-card h3 { font-family: var(--fh); font-size: 1.1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.subj-badge { background: var(--cdim); color: var(--cyan); font-size: .68rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(6,182,212,.3); white-space: nowrap; }
 .subj-list { list-style: none; }
 .subj-list li { padding: 8px 0; border-bottom: 1px solid var(--line); color: var(--gray); font-size: .9rem; display: flex; align-items: center; gap: 10px; }
 .subj-list li:last-child { border-bottom: none; }
@@ -257,10 +258,21 @@ a { text-decoration: none; color: inherit; }
 .cc-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
 .cc-tags span { background: var(--glass); border: 1px solid var(--line); color: var(--gray); font-size: .72rem; padding: 4px 11px; border-radius: 20px; }
 
+/* ── COURSE META ROW (⏱ 🗓 📍) ── */
+.cc-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: .82rem; color: var(--gray); margin-bottom: 18px; }
+.cc-meta span { white-space: nowrap; }
+
 /* ── INFO BOX ── */
 .info-box {
   background: var(--glass); border: 1px solid var(--line); border-radius: var(--rl); padding: 28px 32px;
 }
+
+/* ── COUNTDOWN ── */
+.cd-wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.cd-boxes { display: flex; gap: 12px; flex-wrap: wrap; }
+.cd-box { background: var(--glass); border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; text-align: center; min-width: 68px; }
+.cd-num { font-family: var(--fh); font-size: 2rem; font-weight: 800; color: var(--cyan); line-height: 1; }
+.cd-lbl { font-size: .7rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
 
 /* ── FOOTER ── */
 .footer { background: #080c10; border-top: 1px solid var(--line); padding: 70px 28px 0; }
@@ -271,7 +283,7 @@ a { text-decoration: none; color: inherit; }
 .footer-col a { color: var(--gray); font-size: .88rem; padding: 5px 0; transition: .2s; }
 .footer-col a:hover { color: var(--cyan); padding-left: 6px; }
 .footer-col p { color: var(--gray); font-size: .88rem; padding: 4px 0; }
-.footer-bottom { max-width: 1180px; margin: 0 auto; border-top: 1px solid var(--line); padding: 22px 0; display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom { max-width: 1180px; margin: 0 auto; border-top: 1px solid var(--line); padding: 22px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
 .footer-bottom p { color: var(--gray2); font-size: .8rem; }
 .footer-bottom .made { color: var(--cyan); font-size: .8rem; }
 
@@ -289,49 +301,67 @@ a { text-decoration: none; color: inherit; }
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .hero-inner{gap:48px}
+  .hero-inner { gap: 48px; }
 }
+
 @media(max-width:900px) {
-  .hero-inner { grid-template-columns: 1fr; text-align:center; }
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
   .hero-visual { display: none; }
-  .hero-sub { margin-left:auto; margin-right:auto; }
-  .hero-btns { justify-content:center; }
-  .stats { justify-content:center; }
-  .st { padding:0 16px; }
-  .whyus-grid { grid-template-columns: 1fr; gap:36px!important; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-btns { justify-content: center; }
+  .stats { justify-content: center; }
+  .st { padding: 0 16px; }
+  .whyus-grid { grid-template-columns: 1fr; gap: 36px !important; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
-  .footer-bottom { flex-direction: column; gap: 8px; }
   .mini-stats { grid-template-columns: 1fr 1fr; }
-  .hero-inner .btn-p,.hero-inner .btn-o{margin:0 auto}
 }
-@media(max-width:768px){
-  .whyus-grid img,.whyus-grid .visual-block{display:none}
-  .hero-inner h1{font-size:clamp(2rem,7vw,3.2rem)}
+
+@media(max-width:768px) {
+  .hero-inner h1 { font-size: clamp(2rem, 7vw, 3.2rem); }
+  .sec { padding: 70px 20px; }
+  .info-box { padding: 22px 20px; }
+  .cd-wrap { flex-direction: column; align-items: flex-start; }
+  .cd-boxes { width: 100%; justify-content: flex-start; }
+  .cd-box { flex: 1; min-width: 60px; padding: 14px 10px; }
+  .cd-num { font-size: 1.6rem; }
+  .whyus-visual { padding: 36px 24px; }
+  .big-yr { font-size: 5rem; }
+  .big-plus { font-size: 3rem; }
 }
+
 @media(max-width:640px) {
   .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: rgba(13,17,23,.98); border-bottom: 1px solid var(--line); padding: 12px; }
   .nav-links.open { display: flex; }
   .hbg { display: block; }
-  .stats { flex-wrap: wrap; gap: 16px; justify-content:center; }
+  .stats { flex-wrap: wrap; gap: 16px; justify-content: center; }
   .st { border-right: none; padding: 0 14px; }
   .footer-inner { grid-template-columns: 1fr; }
-  .mini-stats { grid-template-columns: 1fr 1fr; gap:8px!important; }
+  .mini-stats { grid-template-columns: 1fr 1fr; gap: 8px !important; }
+  .hero { padding: 90px 16px 60px; }
+  .hero-btns { flex-direction: column; align-items: center; gap: 10px; }
+  .btn-p, .btn-o { width: 100%; max-width: 280px; text-align: center; }
+  .cd-boxes { justify-content: center; }
+  .cd-box { min-width: 56px; padding: 12px 8px; }
+  .cd-num { font-size: 1.4rem; }
 }
+
 @media(max-width:420px){
   .mini-stats { grid-template-columns: 1fr; }
+  .cd-boxes { gap: 8px; }
+  .nav-inner { padding: 0 16px; }
 }
 
 /* WHATSAPP FLOAT BUTTON */
-.wa-float{position:fixed;bottom:24px;right:24px;z-index:9999}
-.wa-float a{display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:#25D366;border-radius:50%;box-shadow:0 4px 18px rgba(37,211,102,.45),0 2px 8px rgba(0,0,0,.25);transition:.3s;text-decoration:none;position:relative}
-.wa-float a:hover{background:#1ebe5d;transform:translateY(-3px) scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.6)}
-.wa-float svg{width:22px;height:22px;fill:#fff;flex-shrink:0}
-.wa-float a::before{content:'';position:absolute;inset:-3px;border-radius:50%;border:2px solid rgba(37,211,102,.5);animation:wa-ring 2.5s ease-in-out infinite;pointer-events:none}
-@keyframes wa-ring{0%,100%{transform:scale(1);opacity:.6}60%{transform:scale(1.25);opacity:0}}
+.wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 9999; }
+.wa-float a { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: #25D366; border-radius: 50%; box-shadow: 0 4px 18px rgba(37,211,102,.45), 0 2px 8px rgba(0,0,0,.25); transition: .3s; text-decoration: none; position: relative; }
+.wa-float a:hover { background: #1ebe5d; transform: translateY(-3px) scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
+.wa-float svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+.wa-float a::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 2px solid rgba(37,211,102,.5); animation: wa-ring 2.5s ease-in-out infinite; pointer-events: none; }
+@keyframes wa-ring { 0%,100%{transform:scale(1);opacity:.6} 60%{transform:scale(1.25);opacity:0} }
 @media(max-width:640px){
-  .wa-float{bottom:18px;right:16px}
-  .wa-float a{width:44px;height:44px}
-  .wa-float svg{width:20px;height:20px}
+  .wa-float { bottom: 18px; right: 16px; }
+  .wa-float a { width: 44px; height: 44px; }
+  .wa-float svg { width: 20px; height: 20px; }
 }
 </style>
 </head>
@@ -468,7 +498,7 @@ a { text-decoration: none; color: inherit; }
 
 <!-- SUBJECTS TABS -->
 <section class="sec dark">
-  <div style="max-width:1180px;margin:0 auto;padding:0 0;">
+  <div style="max-width:1180px;margin:0 auto;">
     <div class="sec-head reveal">
       <div class="sec-tag">Subjects by Class</div>
       <h2>Choose Your <span class="c">Class & Stream</span></h2>
@@ -533,28 +563,21 @@ a { text-decoration: none; color: inherit; }
 
   <!-- Countdown banner -->
   <div style="max-width:1180px;margin:0 auto 48px;" class="reveal">
-  <div class="info-box" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
-    <div>
-      <div style="font-size:.75rem;color:var(--cyan);text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:6px;">Enrolment Open Now</div>
-      <div style="font-family:var(--fh);font-size:1.4rem;font-weight:800;">Summer Batch starts <span style="color:var(--cyan)">June 2025</span></div>
-      <div style="color:var(--gray);font-size:.9rem;margin-top:4px;">Limited seats · Morning & Evening batches · Online & In-person</div>
-    </div>
-    <div class="cd-boxes" style="display:flex;gap:12px;flex-wrap:wrap;">
-      <div style="background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:16px 22px;text-align:center;">
-        <div style="font-family:var(--fh);font-size:2rem;font-weight:800;color:var(--cyan)" id="cd-d">00</div>
-        <div style="font-size:.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px">Days</div>
-      </div>
-      <div style="background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:16px 22px;text-align:center;">
-        <div style="font-family:var(--fh);font-size:2rem;font-weight:800;color:var(--cyan)" id="cd-h">00</div>
-        <div style="font-size:.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px">Hours</div>
-      </div>
-      <div style="background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:16px 22px;text-align:center;">
-        <div style="font-family:var(--fh);font-size:2rem;font-weight:800;color:var(--cyan)" id="cd-m">00</div>
-        <div style="font-size:.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px">Mins</div>
+    <div class="info-box">
+      <div class="cd-wrap">
+        <div>
+          <div style="font-size:.75rem;color:var(--cyan);text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:6px;">Enrolment Open Now</div>
+          <div style="font-family:var(--fh);font-size:1.4rem;font-weight:800;">Summer Batch starts <span style="color:var(--cyan)">June 2025</span></div>
+          <div style="color:var(--gray);font-size:.9rem;margin-top:4px;">Limited seats · Morning & Evening batches · Online & In-person</div>
+        </div>
+        <div class="cd-boxes">
+          <div class="cd-box"><div class="cd-num" id="cd-d">00</div><div class="cd-lbl">Days</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-lbl">Hours</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-lbl">Mins</div></div>
+        </div>
+        <a href="contact.html" class="btn-p">Reserve Your Seat</a>
       </div>
     </div>
-    <a href="contact.html" class="btn-p">Reserve Your Seat</a>
-  </div>
   </div>
 
   <!-- Program cards -->
@@ -569,9 +592,7 @@ a { text-decoration: none; color: inherit; }
       <div class="cc-body">
         <p>Intensive revision of Mathematics, Physics and Chemistry — complete syllabus covered with past paper practice.</p>
         <div class="cc-tags"><span>Mathematics</span><span>Physics</span><span>Chemistry</span><span>Past Papers</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:.82rem;color:var(--gray);margin-bottom:18px;">
-          <span>⏱ 6 Weeks</span><span>🗓 Jun – Jul</span><span>📍 Online / In-person</span>
-        </div>
+        <div class="cc-meta"><span>⏱ 6 Weeks</span><span>🗓 Jun – Jul</span><span>📍 Online / In-person</span></div>
         <a href="contact.html" class="btn-p" style="font-size:.85rem;padding:10px 22px;">Enrol Now</a>
       </div>
     </div>
@@ -585,9 +606,7 @@ a { text-decoration: none; color: inherit; }
       <div class="cc-body">
         <p>Full summer revision for Commerce students — Accounting, Economics, Principles of Commerce and Business Maths.</p>
         <div class="cc-tags"><span>Accounting</span><span>Economics</span><span>Commerce</span><span>Biz Maths</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:.82rem;color:var(--gray);margin-bottom:18px;">
-          <span>⏱ 6 Weeks</span><span>🗓 Jun – Jul</span><span>📍 Online / In-person</span>
-        </div>
+        <div class="cc-meta"><span>⏱ 6 Weeks</span><span>🗓 Jun – Jul</span><span>📍 Online / In-person</span></div>
         <a href="contact.html" class="btn-p" style="font-size:.85rem;padding:10px 22px;background:var(--cyan2);">Enrol Now</a>
       </div>
     </div>
@@ -601,9 +620,7 @@ a { text-decoration: none; color: inherit; }
       <div class="cc-body">
         <p>Targeted summer revision for Intermediate students — complete FSc syllabus with MCQ drilling and past papers.</p>
         <div class="cc-tags"><span>Maths</span><span>Physics</span><span>Chemistry</span><span>Biology</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:.82rem;color:var(--gray);margin-bottom:18px;">
-          <span>⏱ 8 Weeks</span><span>🗓 Jun – Aug</span><span>📍 In-person</span>
-        </div>
+        <div class="cc-meta"><span>⏱ 8 Weeks</span><span>🗓 Jun – Aug</span><span>📍 In-person</span></div>
         <a href="contact.html" class="btn-p" style="font-size:.85rem;padding:10px 22px;">Enrol Now</a>
       </div>
     </div>
@@ -617,9 +634,7 @@ a { text-decoration: none; color: inherit; }
       <div class="cc-body">
         <p>Use the summer to explore career paths, choose the right subjects, and build skills that put you ahead of peers.</p>
         <div class="cc-tags"><span>Career Guidance</span><span>Subject Selection</span><span>Counselling</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:.82rem;color:var(--gray);margin-bottom:18px;">
-          <span>⏱ 3 Sessions</span><span>🗓 Flexible</span><span>📍 Online / In-person</span>
-        </div>
+        <div class="cc-meta"><span>⏱ 3 Sessions</span><span>🗓 Flexible</span><span>📍 Online / In-person</span></div>
         <a href="contact.html" class="btn-p" style="font-size:.85rem;padding:10px 22px;">Book Free Session</a>
       </div>
     </div>
@@ -705,46 +720,59 @@ a { text-decoration: none; color: inherit; }
 
 <script>
 // Navbar scroll
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY>40);
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
 });
 
 // Hamburger
-document.getElementById('hbg').addEventListener('click',()=>{
+document.getElementById('hbg').addEventListener('click', () => {
   document.getElementById('nl').classList.toggle('open');
+});
+
+// Close menu when a link is clicked (mobile)
+document.querySelectorAll('#nl a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('nl').classList.remove('open');
+  });
 });
 
 // Scroll reveal
 const revealEls = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
-},{threshold:0.12});
-revealEls.forEach(el=>obs.observe(el));
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => obs.observe(el));
 
 // Countdown to June 1 2025
-function updateCountdown(){
+function updateCountdown() {
   const target = new Date('2025-06-01T00:00:00');
   const now = new Date();
   const diff = target - now;
-  if(diff <= 0){ document.getElementById('cd-d').textContent='00'; document.getElementById('cd-h').textContent='00'; document.getElementById('cd-m').textContent='00'; return; }
-  const d = Math.floor(diff/86400000);
-  const h = Math.floor((diff%86400000)/3600000);
-  const m = Math.floor((diff%3600000)/60000);
-  document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
-  document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
-  document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+  if (diff <= 0) {
+    document.getElementById('cd-d').textContent = '00';
+    document.getElementById('cd-h').textContent = '00';
+    document.getElementById('cd-m').textContent = '00';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  document.getElementById('cd-d').textContent = String(d).padStart(2, '0');
+  document.getElementById('cd-h').textContent = String(h).padStart(2, '0');
+  document.getElementById('cd-m').textContent = String(m).padStart(2, '0');
 }
-updateCountdown(); setInterval(updateCountdown, 60000);
+updateCountdown();
+setInterval(updateCountdown, 60000);
 
 // Subject tabs
-function showTab(id){
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('on'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('on'));
+function showTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('on'));
   document.getElementById(id).classList.add('on');
   event.target.classList.add('on');
-  document.getElementById(id).querySelectorAll('.reveal').forEach(el=>{
+  document.getElementById(id).querySelectorAll('.reveal').forEach(el => {
     el.classList.remove('in');
-    setTimeout(()=>el.classList.add('in'),80);
+    setTimeout(() => el.classList.add('in'), 80);
   });
 }
 </script>
