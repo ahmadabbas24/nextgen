@@ -21,8 +21,9 @@
   --rl:       22px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden;}
 body { font-family: var(--fb); background: var(--carbon); color: var(--white); line-height: 1.7; overflow-x: hidden; }
+.page-hero { overflow: hidden; }
 a { text-decoration: none; color: inherit; }
 
 /* ── NAVBAR ── */
